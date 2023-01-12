@@ -1,23 +1,23 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Windows.Media;
 
 namespace ProfileSichern.ViewModel;
 
 public partial class ViewModel : ObservableObject
 {
+    private readonly MainWindow _mainWindow;
  
     public ViewModel(MainWindow mainWindow)
     {
-        BrushButtonLoeschen = Brushes.LightGray;
-        BrushButtonTemplate = Brushes.LightGray;
-        BrushButtonEntpacken = Brushes.LightGray;
+        _mainWindow = mainWindow;
 
+        StringUserId = $"ID: {_mainWindow.Model.UserId}";
+        StringUserName = $"Name: {_mainWindow.Model.UserName}";
+        StringUserProfilePath = $"Profilordner: {_mainWindow.Model.UserProfilePath}";
+        
+        TextBoxInfo = _mainWindow.Model.GetProfilInfo();
 
-        StringUserId = $"ID: {mainWindow.Model.UserId}";
-        StringUserName = $"Name: {mainWindow.Model.UserName}";
-        StringUserProfilePath = $"Profilordner: {mainWindow.Model.UserProfilePath}";
-
-
+        BoolBackupDesktop = _mainWindow.Model.SizePfadDesktop > 0;
+        BoolBackupFavoriten = _mainWindow.Model.SizePfadFavoriten > 0;
+        BoolBackupSignatur = _mainWindow.Model.SizePfadSignatur > 0;
     }
-
 }

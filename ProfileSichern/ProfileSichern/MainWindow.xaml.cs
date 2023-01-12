@@ -1,11 +1,7 @@
-﻿using System.Diagnostics;
-using System.IO;
-
-namespace ProfileSichern;
+﻿namespace ProfileSichern;
 
 public partial class MainWindow
 {
-
     public ViewModel.ViewModel ViewModel { get; set; }
     public Model.Model Model { get; set; }
 
@@ -17,13 +13,4 @@ public partial class MainWindow
         InitializeComponent();
         DataContext = ViewModel;
     }
-
-    private static void InhaltAnzeigen(string path)
-    {
-        foreach (var file in Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories))
-        {
-            Debug.WriteLine(file);
-        }
-    }
-
 }

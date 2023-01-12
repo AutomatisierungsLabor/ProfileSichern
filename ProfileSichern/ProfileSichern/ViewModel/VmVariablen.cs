@@ -1,17 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Windows.Media;
 
 namespace ProfileSichern.ViewModel;
 
 public partial class ViewModel
 {
-    [ObservableProperty] private Brush _brushButtonTemplate;
-    [ObservableProperty] private Brush _brushButtonLoeschen;
-    [ObservableProperty] private Brush _brushButtonEntpacken;
-
-
+    [ObservableProperty] private bool _boolBackupDesktop;
+    [ObservableProperty] private bool _boolBackupFavoriten;
+    [ObservableProperty] private bool _boolBackupSignatur;
+    [ObservableProperty] private bool _boolBackupAlles;
+    
     [ObservableProperty] private string _stringUserId;
     [ObservableProperty] private string _stringUserName;
     [ObservableProperty] private string _stringUserProfilePath;
-
+    [ObservableProperty] private string _textBoxInfo;
 }
