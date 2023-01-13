@@ -13,8 +13,8 @@ public partial class ViewModel : ObservableObject
         StringUserId = $"ID: {_mainWindow.Model.UserId}";
         StringUserName = $"Name: {_mainWindow.Model.UserName}";
         StringUserProfilePath = $"Profilordner: {_mainWindow.Model.UserProfilePath}";
-        
-        TextBoxInfo = _mainWindow.Model.GetProfilInfo();
+
+        StringTextBox = _mainWindow.Model.GetProfilInfo();
 
         BoolBackupDesktop = _mainWindow.Model.SizePfadDesktop > 0;
         BoolBackupFavoriten = _mainWindow.Model.SizePfadFavoriten > 0;

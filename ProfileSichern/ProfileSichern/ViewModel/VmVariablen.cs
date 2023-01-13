@@ -12,5 +12,5 @@ public partial class ViewModel
     [ObservableProperty] private string _stringUserId;
     [ObservableProperty] private string _stringUserName;
     [ObservableProperty] private string _stringUserProfilePath;
-    [ObservableProperty] private string _textBoxInfo;
+    [ObservableProperty] private string _stringTextBox;
 }

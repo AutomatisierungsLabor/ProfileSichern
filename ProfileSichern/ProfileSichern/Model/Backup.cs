@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO.Compression;
 using Microsoft.Win32;
 
@@ -32,10 +33,17 @@ public class Backup
         _fileName = saveFileDialog.FileName;
         return true;
     }
-
     public void BackupData(string quellpfad)
     {
         if (quellpfad.Length == 0) return;
-        ZipFile.CreateFromDirectory(quellpfad, _fileName, CompressionLevel.Optimal, false);
+        try
+        {
+            ZipFile.CreateFromDirectory(quellpfad, _fileName, CompressionLevel.Optimal, false);
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine(e);
+            throw;
+        }
     }
 }

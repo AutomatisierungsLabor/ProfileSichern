@@ -41,7 +41,6 @@ public partial class Model
             return null;
         }
     }
-
     public string GetProfilInfo()
     {
         SizePfadDesktop = OrdnerGroesseLesen($"{Path.Combine(UserProfilePath, PfadDesktop)}");
@@ -58,15 +57,12 @@ public partial class Model
 
         return text.ToString();
     }
-
     private static long OrdnerGroesseLesen(string pfad)
     {
         if (pfad == null || !Directory.Exists(pfad)) return 0;
         return Directory.EnumerateFiles(pfad, "*", SearchOption.AllDirectories).Sum(fileInfo => new FileInfo(fileInfo).Length);
     }
-
     private static readonly string[] SizeSuffixes = { "Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-
     private static string SizeSuffix(long value, int decimalPlaces = 1)
     {
         if (value < 0) { return "-" + SizeSuffix(-value, decimalPlaces); }
@@ -78,7 +74,6 @@ public partial class Model
             dValue /= 1024;
             i++;
         }
-
         return $"{dValue:F1} {SizeSuffixes[i]}";
     }
 }

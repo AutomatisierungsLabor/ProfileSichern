@@ -12,7 +12,6 @@ public partial class ViewModel
         if (erfolgreich) _mainWindow.Model.Backup.BackupData(PfadBestimmen(todo));
     }
 
-
     [RelayCommand]
     private void ButtonRestore(string todo)
     {
@@ -20,16 +19,14 @@ public partial class ViewModel
         if (erfolgreich) _mainWindow.Model.Restore.RestoreData(PfadBestimmen(todo));
     }
 
-
     private string PfadBestimmen(string todo)
     {
-        var quellpfad = todo switch
+        return todo switch
         {
             "Desktop" => Path.Combine(_mainWindow.Model.UserProfilePath, _mainWindow.Model.PfadDesktop),
             "Favoriten" => Path.Combine(_mainWindow.Model.UserProfilePath, _mainWindow.Model.PfadFavoriten),
             "Signatur" => Path.Combine(_mainWindow.Model.UserProfilePath, _mainWindow.Model.PfadSignatur),
             _ => ""
         };
-        return quellpfad;
     }
 }
