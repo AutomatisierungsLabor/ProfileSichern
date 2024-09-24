@@ -2,8 +2,8 @@
 
 public partial class MainWindow
 {
-    public ViewModel.ViewModel ViewModel { get; set; }
-    public Model.Model Model { get; set; }
+    private ViewModel.ViewModel ViewModel { get; }
+    public Model.Model Model { get; }
 
     public MainWindow()
     {

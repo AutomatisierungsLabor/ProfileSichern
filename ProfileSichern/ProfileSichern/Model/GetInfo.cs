@@ -9,8 +9,9 @@ namespace ProfileSichern.Model;
 
 public partial class Model
 {
-    private static string GetUserProfilePath(string userName, string userSid = null)
+    private static string? GetUserProfilePath(string? userName, string? userSid)
     {
+        if (userName is null || userSid == null) return null;
         try
         {
             userSid ??= GetUserSid(userName);
@@ -27,7 +28,7 @@ public partial class Model
             return null;
         }
     }
-    private static string GetUserSid(string userName)
+    private static string? GetUserSid(string? userName)
     {
         try
         {
@@ -41,12 +42,12 @@ public partial class Model
             return null;
         }
     }
-    public string GetProfilInfo()
+    public string? GetProfilInfo()
     {
         SizePfadDesktop = OrdnerGroesseLesen($"{Path.Combine(UserProfilePath, PfadDesktop)}");
         SizePfadFavoriten = OrdnerGroesseLesen($"{Path.Combine(UserProfilePath, PfadFavoriten)}");
         SizePfadSignatur = OrdnerGroesseLesen($"{Path.Combine(UserProfilePath, PfadSignatur)}");
-        
+
         var text = new StringBuilder();
         text.Clear();
 
@@ -57,13 +58,13 @@ public partial class Model
 
         return text.ToString();
     }
-    private static long OrdnerGroesseLesen(string pfad)
+    private static long OrdnerGroesseLesen(string? pfad)
     {
-        if (pfad == null || !Directory.Exists(pfad)) return 0;
+        if (pfad is null || !Directory.Exists(pfad)) return 0;
         return Directory.EnumerateFiles(pfad, "*", SearchOption.AllDirectories).Sum(fileInfo => new FileInfo(fileInfo).Length);
     }
-    private static readonly string[] SizeSuffixes = { "Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-    private static string SizeSuffix(long value, int decimalPlaces = 1)
+    private static readonly string[]? SizeSuffixes = { "Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+    private static string? SizeSuffix(long value, int decimalPlaces = 1)
     {
         if (value < 0) { return "-" + SizeSuffix(-value, decimalPlaces); }
 

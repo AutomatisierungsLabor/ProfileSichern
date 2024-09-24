@@ -7,7 +7,7 @@ namespace ProfileSichern.Model;
 
 public class Restore
 {
-    private string _fileName;
+    private string? _fileName;
 
     public bool DateiAuswaehlen()
     {
@@ -19,14 +19,17 @@ public class Restore
 
         openFileDialog.ShowDialog();
 
-        if (openFileDialog.FileName == "") return false;
+        if (string.IsNullOrEmpty(openFileDialog.FileName)) return false;
 
         _fileName = openFileDialog.FileName;
         return true;
     }
-    public void RestoreData(string zielPfad)
+
+    public void RestoreData(string? zielPfad)
     {
-        if (zielPfad == null) return;
+        if (zielPfad is null) return;
+        if (_fileName is null) return;
+        
         try
         {
             ZipFile.ExtractToDirectory(_fileName, zielPfad);

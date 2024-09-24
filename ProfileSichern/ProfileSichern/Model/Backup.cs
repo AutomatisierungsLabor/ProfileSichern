@@ -7,9 +7,9 @@ namespace ProfileSichern.Model;
 
 public class Backup
 {
-    private string _fileName;
+    private string? _fileName;
 
-    public bool DateiAuswaehlen(string todo)
+    public bool DateiAuswaehlen(string? todo)
     {
         var defaultName = todo switch
         {
@@ -33,7 +33,7 @@ public class Backup
         _fileName = saveFileDialog.FileName;
         return true;
     }
-    public void BackupData(string quellpfad)
+    public void BackupData(string? quellpfad)
     {
         if (quellpfad.Length == 0) return;
         try

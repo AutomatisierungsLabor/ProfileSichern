@@ -6,7 +6,7 @@
         xmlns:viewModel="clr-namespace:ProfileSichern.ViewModel"
         d:DataContext="{d:DesignInstance Type=viewModel:ViewModel}"
         mc:Ignorable="d"
-        Title="Profile sichern" Height="800" Width="850">
+        Title="Profile sichern" Height="490" Width="850">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -14,7 +14,6 @@
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="400" />
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
@@ -25,11 +24,8 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-
             <RowDefinition Height="10" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="110" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
@@ -42,17 +38,13 @@
         <Button Grid.Column="1" Grid.Row="5" FontSize="16pt" Content="Desktop"   Command="{Binding ButtonBackupCommand}" CommandParameter="Desktop"   IsEnabled="{Binding BoolBackupDesktop}"   Margin="20,5,20,5" />
         <Button Grid.Column="1" Grid.Row="6" FontSize="16pt" Content="Favoriten" Command="{Binding ButtonBackupCommand}" CommandParameter="Favoriten" IsEnabled="{Binding BoolBackupFavoriten}" Margin="20,5,20,5" />
         <Button Grid.Column="1" Grid.Row="7" FontSize="16pt" Content="Signatur"  Command="{Binding ButtonBackupCommand}" CommandParameter="Signatur"  IsEnabled="{Binding BoolBackupSignatur}"  Margin="20,5,20,5" />
-        <Button Grid.Column="1" Grid.Row="8" FontSize="16pt" Content="???"       Command="{Binding ButtonBackupCommand}" CommandParameter="???"       IsEnabled="False"                                        Margin="20,5,20,5" />
-        <Button Grid.Column="1" Grid.Row="9" FontSize="16pt" Content="Alles"     Command="{Binding ButtonBackupCommand}" CommandParameter="Alles"     IsEnabled="False"                                        Margin="20,5,20,5" />
 
         <Rectangle Grid.Column="3" Grid.Row="4" Grid.RowSpan="6" Fill="LawnGreen"/>
         <Label Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26pt" Content="Restore"/>
         <Button Grid.Column="3" Grid.Row="5" FontSize="16pt" Content="Desktop"   Command="{Binding ButtonRestoreCommand}" CommandParameter="Desktop"   Margin="20,5,20,5" />
         <Button Grid.Column="3" Grid.Row="6" FontSize="16pt" Content="Favoriten" Command="{Binding ButtonRestoreCommand}" CommandParameter="Favoriten" Margin="20,5,20,5" />
         <Button Grid.Column="3" Grid.Row="7" FontSize="16pt" Content="Signatur"  Command="{Binding ButtonRestoreCommand}" CommandParameter="Signatur"  Margin="20,5,20,5" />
-        <Button Grid.Column="3" Grid.Row="8" FontSize="16pt" Content="???"       Command="{Binding ButtonRestoreCommand}" CommandParameter="???"       Margin="20,5,20,5" />
-        <Button Grid.Column="3" Grid.Row="9" FontSize="16pt" Content="Alles"     Command="{Binding ButtonRestoreCommand}" CommandParameter="Alles"     Margin="20,5,20,5" />
 
-        <TextBox  Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="11" TextWrapping="Wrap" FontSize="14pt" Text="{Binding StringTextBox}"  />
+        <TextBox  Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="9" TextWrapping="Wrap" FontSize="14pt" Text="{Binding StringTextBox}"  />
     </Grid>
 </Window>

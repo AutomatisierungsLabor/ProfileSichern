@@ -1,13 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?><Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <RunPostBuildEvent>Always</RunPostBuildEvent>
+        <Platforms>x64</Platforms>
+        <PackageProjectUrl>https://github.com/AutomatisierungsLabor/ProfileSichern</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AutomatisierungsLabor/ProfileSichern/</RepositoryUrl>
+        <AssemblyVersion>4.0.0.0</AssemblyVersion>
+        <FileVersion>4.0.0.0</FileVersion>
+        <Version>4.0.0</Version>
+        <Authors>Kurt Linder</Authors>
+        <Copyright>Copyright © 2019-2022 Kurt Linder</Copyright>
+        <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("dd-MM-yyyy"))</SourceRevisionId>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
   </ItemGroup>
 
 </Project>
