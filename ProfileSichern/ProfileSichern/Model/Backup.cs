@@ -1,7 +1,7 @@
-﻿using System;
+using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.IO.Compression;
-using Microsoft.Win32;
 
 namespace ProfileSichern.Model;
 
@@ -28,14 +28,17 @@ public class Backup
 
         saveFileDialog.ShowDialog();
 
-        if (saveFileDialog.FileName == "") return false;
+        if (saveFileDialog.FileName == "") { return false; }
 
         _fileName = saveFileDialog.FileName;
         return true;
     }
     public void BackupData(string? quellpfad)
     {
-        if (quellpfad.Length == 0) return;
+        if (quellpfad is null) { return; }
+        if (quellpfad.Length == 0) { return; }
+        if (_fileName is null) { return; }
+
         try
         {
             ZipFile.CreateFromDirectory(quellpfad, _fileName, CompressionLevel.Optimal, false);

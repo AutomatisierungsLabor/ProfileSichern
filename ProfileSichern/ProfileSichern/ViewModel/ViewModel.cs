@@ -1,23 +1,23 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ProfileSichern.ViewModel;
 
 public partial class ViewModel : ObservableObject
 {
-    private readonly MainWindow _mainWindow;
- 
-    public ViewModel(MainWindow mainWindow)
+    private readonly Model.Model _model;
+
+    public ViewModel(Model.Model model)
     {
-        _mainWindow = mainWindow;
+        _model = model;
 
-        StringUserId = $"ID: {_mainWindow.Model.UserId}";
-        StringUserName = $"Name: {_mainWindow.Model.UserName}";
-        StringUserProfilePath = $"Profilordner: {_mainWindow.Model.UserProfilePath}";
+        StringUserId = $"ID: {_model.UserId}";
+        StringUserName = $"Name: {_model.UserName}";
+        StringUserProfilePath = $"Profilordner: {_model.UserProfilePath}";
 
-        StringTextBox = _mainWindow.Model.GetProfilInfo();
+        StringTextBox = _model.GetProfilInfo();
 
-        BoolBackupDesktop = _mainWindow.Model.SizePfadDesktop > 0;
-        BoolBackupFavoriten = _mainWindow.Model.SizePfadFavoriten > 0;
-        BoolBackupSignatur = _mainWindow.Model.SizePfadSignatur > 0;
+        BoolBackupDesktop = _model.SizePfadDesktop > 0;
+        BoolBackupFavoriten = _model.SizePfadFavoriten > 0;
+        BoolBackupSignatur = _model.SizePfadSignatur > 0;
     }
 }

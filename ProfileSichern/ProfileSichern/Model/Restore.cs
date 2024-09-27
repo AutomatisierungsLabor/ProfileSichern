@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using System;
-using System.IO.Compression;
 using Microsoft.Win32;
+using System;
+using System.Diagnostics;
+using System.IO.Compression;
 
 namespace ProfileSichern.Model;
 
@@ -19,17 +19,14 @@ public class Restore
 
         openFileDialog.ShowDialog();
 
-        if (string.IsNullOrEmpty(openFileDialog.FileName)) return false;
-
         _fileName = openFileDialog.FileName;
-        return true;
+        return !string.IsNullOrEmpty(_fileName);
     }
 
     public void RestoreData(string? zielPfad)
     {
-        if (zielPfad is null) return;
-        if (_fileName is null) return;
-        
+        if (zielPfad is null || _fileName is null) { return; }
+
         try
         {
             ZipFile.ExtractToDirectory(_fileName, zielPfad);

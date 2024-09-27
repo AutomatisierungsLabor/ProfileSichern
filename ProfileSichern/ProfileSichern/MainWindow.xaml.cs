@@ -1,16 +1,14 @@
-﻿namespace ProfileSichern;
+namespace ProfileSichern;
 
+// ReSharper disable once UnusedMember.Global
 public partial class MainWindow
 {
-    private ViewModel.ViewModel ViewModel { get; }
-    public Model.Model Model { get; }
-
     public MainWindow()
     {
-        Model = new Model.Model();
-        ViewModel = new ViewModel.ViewModel(this);
+        var model = new Model.Model();
+        var viewModel = new ViewModel.ViewModel(model);
 
         InitializeComponent();
-        DataContext = ViewModel;
+        DataContext = viewModel;
     }
 }
